@@ -1,3 +1,8 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #eeede8;
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -6,11 +11,12 @@
 }
 
 .App-header {
-  background-color: #262626;
+  background-color: #006064;
+  font-family: 'Permanent Marker', cursive;
   overflow: visible;
   width: 100%;
   text-align: center;
-  color: white;
+  color: #faf9f4;
 }
 
 .Messages-list {
@@ -81,19 +87,14 @@ form {
 }
 
 input {
-  padding: 5px;
+  padding: 20px;
   font-size: 16px;
-  border-radius: 8px;
-  border: 1px solid orangered;
+  border-radius: 25px;
+  background-color: #e0decf;
+  border: none;
   flex-grow: 1;
 }
 
-button {
-  padding: 5px 10px;
-  font-size: 16px;
-  background-color: orangered;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  margin-left: 10px;
+input:focus {
+  outline: none;
 }

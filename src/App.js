@@ -11,7 +11,7 @@ function randomName() {
 }
 
 function randomColor() {
-  return "#" + Math.floor(Math.random() * 0xffffff).toString(16);
+  return '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16);
 }
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
   const [users, setUsers] = useState();
 
   useEffect(() => {
-    const drone = new window.Scaledrone("JGmqrCsbmbemwbQe", {
+    const drone = new window.Scaledrone("Brk2ThFSipDFaXav", {
       data: user,
     });
     setDrone(drone);

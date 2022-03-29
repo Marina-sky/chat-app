@@ -1,6 +1,16 @@
 import React, { useState } from "react";
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import Icon from '@material-ui/core/Icon';
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1),
+  },
+}));
 
 const Input = ({ onSendMessage }) => {
+  const classes = useStyles();
   const [textInputs, setTextInputs] = useState("");
 
   function onChange(e) {
@@ -20,9 +30,16 @@ const Input = ({ onSendMessage }) => {
           onChange={(e) => onChange(e)}
           value={textInputs}
           type="text"
-          placeholder="Enter your message and press ENTER"
+          placeholder="Type your message here..."
         />
-        <button>Send</button>
+        <Button
+        variant="contained"
+        color="secondary"
+        className={classes.button}
+        endIcon={<Icon>send</Icon>}
+      >
+        Send
+      </Button>
       </form>
     </div>
   );
