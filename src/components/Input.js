@@ -43,6 +43,7 @@ const Input = ({ onSendMessage }) => {
           placeholder="Type your message here..."
         />
         <Button
+        onClick={(e) => onSubmit(e)}
         variant="contained"
         color="secondary"
         className={classes.button}

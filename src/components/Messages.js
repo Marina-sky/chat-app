@@ -1,8 +1,10 @@
-import React, { useRef, useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
-
 const Messages = ({ messages, users }) => {
-  console.log(messages)
+  const timestamp = Date.now()
+
+  const formatDate = () => {
+    const options = { dateStyle: 'short', timeStyle: 'short' }
+    return new Intl.DateTimeFormat('hr-HR', options).format(timestamp)
+  }
 
   return (
     <div>
@@ -18,6 +20,7 @@ const Messages = ({ messages, users }) => {
             <div className="Message-content">
               <div className="username">{message.username}</div>
               <div className="text">{message.text}</div>
+              <div className="time">{formatDate()}</div>
             </div>
             
           </div>

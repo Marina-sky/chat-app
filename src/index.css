@@ -43,6 +43,7 @@ body {
 
 .Message-content {
   display: inline-block;
+  margin: 5px;
 }
 
 .currentMember > .Message-content {
@@ -59,7 +60,8 @@ body {
 
 .Message-content > .username {
   display: block;
-  color: gray;
+  color: #301e1b;
+  opacity: 0.8;
   font-size: 14px;
   padding-bottom: 4px;
 }
@@ -69,9 +71,16 @@ body {
   max-width: 400px;
   margin: 0;
   border-radius: 12px;
-  background-color: cornflowerblue;
+  background-color: #c51162;
   color: white;
   display: inline-block;
+}
+
+.Message-content > .time {
+  display: block;
+  color: gray;
+  font-size: 11px;
+  margin-top: 5px
 }
 
 .currentMember > .Message-content .text {
@@ -93,6 +102,7 @@ input {
   background-color: #e0decf;
   border: none;
   flex-grow: 1;
+  color: #301e1b;
 }
 
 input:focus {
