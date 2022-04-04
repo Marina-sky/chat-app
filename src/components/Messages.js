@@ -13,7 +13,9 @@ const Messages = ({ messages, users }) => {
             <div className="Message-content">
               <div className="username">{message.username}</div>
               <div className="text">{message.text}</div>
-              <div className="time">{message.timestamp.getHours()}:{message.timestamp.getMinutes()}</div>
+              <div className="time">{message.timestamp.getHours()}:
+              {(message.timestamp.getMinutes()) < 10 ? `0${message.timestamp.getMinutes()}` : message.timestamp.getMinutes()}
+              </div>
             </div>
             
           </div>
