@@ -3,6 +3,7 @@ import Messages from "./components/Messages";
 import Input from "./components/Input";
 import nouns from "./data/nouns";
 import adjectives from "./data/adjectives";
+import ScrollToBottom from "react-scroll-to-bottom";
 
 function randomName() {
   const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
@@ -71,13 +72,16 @@ function App() {
   };
 
   return (
+    <ScrollToBottom>
     <div className="App">
+      
       <div className="App-header">
         <h1>My Chat App</h1>
       </div>
       <Messages messages={messages} users={users}/>
       <Input onSendMessage={onSendMessage} />
     </div>
+    </ScrollToBottom>
   );
 }
 
