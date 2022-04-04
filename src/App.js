@@ -51,10 +51,11 @@ function App() {
         const username = chatUser.clientData.username;
         const chatUserID = chatUser.id;
         const userColor = chatUser.clientData.randomColor
+        const timestamp = new Date()
         
         setMessages((oldArray) => [
           ...oldArray,
-          { text, username, userColor, chatUserID, user },
+          { text, username, userColor, chatUserID, user, timestamp },
         ]);
       });
     });

@@ -1,11 +1,4 @@
 const Messages = ({ messages, users }) => {
-  const timestamp = Date.now()
-
-  const formatDate = () => {
-    const options = { dateStyle: 'short', timeStyle: 'short' }
-    return new Intl.DateTimeFormat('hr-HR', options).format(timestamp)
-  }
-
   return (
     <div>
       <ul className="Messages-list">
@@ -20,7 +13,7 @@ const Messages = ({ messages, users }) => {
             <div className="Message-content">
               <div className="username">{message.username}</div>
               <div className="text">{message.text}</div>
-              <div className="time">{formatDate()}</div>
+              <div className="time">{message.timestamp.getHours()}:{message.timestamp.getMinutes()}</div>
             </div>
             
           </div>
