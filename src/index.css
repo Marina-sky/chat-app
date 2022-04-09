@@ -1,6 +1,40 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: #eeede8;
+  color: #301e1b;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+h2 {
+  font-size: 36px;
+  text-align: center;
+  position: relative;
+  bottom: 200px;
+}
+
+img {
+  margin: 20px;
+  border-radius: 10px;
+}
+
+input {
+  padding: 20px;
+  font-size: 16px;
+  border-radius: 25px;
+  background-color: #e0decf;
+  border: none;
+  flex-grow: 1;
+}
+
+input:focus {
+  outline: none;
 }
 
 .App {
@@ -12,11 +46,26 @@ body {
 
 .App-header {
   background-color: #006064;
-  font-family: 'Permanent Marker', cursive;
+  font-family: "Permanent Marker", cursive;
   overflow: visible;
   width: 100%;
   text-align: center;
   color: #faf9f4;
+}
+
+.avatars {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 180px;
+}
+
+.choose-avatar {
+  font-size: 16px;
+  opacity: 0.8;
+  text-align: center;
+  position: relative;
+  bottom: 200px;
 }
 
 .Messages-list {
@@ -56,11 +105,11 @@ body {
   border-radius: 50%;
   display: inline-block;
   margin: 0 10px -10px;
+  background-size: 35px 35px;
 }
 
 .Message-content > .username {
   display: block;
-  color: #301e1b;
   opacity: 0.8;
   font-size: 14px;
   padding-bottom: 4px;
@@ -80,31 +129,13 @@ body {
   display: block;
   color: gray;
   font-size: 11px;
-  margin-top: 5px
+  margin-top: 5px;
 }
 
 .currentMember > .Message-content .text {
   background-color: orangered;
 }
 
-form {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  max-width: 900px;
-  margin: 0 auto 40px;
-}
-
-input {
-  padding: 20px;
-  font-size: 16px;
-  border-radius: 25px;
-  background-color: #e0decf;
-  border: none;
-  flex-grow: 1;
-  color: #301e1b;
-}
-
-input:focus {
-  outline: none;
+.selected {
+  background-color: #e6ee9c;
 }
