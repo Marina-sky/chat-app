@@ -19,7 +19,7 @@ function randomColor() {
 function App() {
   let selectedAvatar = "";
   const [user, setUser] = useState({
-    username: randomName(),
+    username: "",
     userColor: "",
   });
   const [messages, setMessages] = useState([]);
@@ -52,7 +52,7 @@ function App() {
       chatRoom.on("data", (text, chatUser) => {
         setUsers(drone.clientId);
 
-        const username = chatUser.clientData.username;
+        const username = user.username;
         const chatUserID = chatUser.id;
         const userColor = user.userColor;
         const userAvatar = selectedAvatar;
@@ -79,6 +79,14 @@ function App() {
         room: "observable-room",
         message,
       });
+    }
+  };
+
+  const onTypeUsername = (userName) => {
+    if (userName !== "") {
+      user.username = userName;
+    } else {
+      user.username = randomName();
     }
   };
 
@@ -110,6 +118,7 @@ function App() {
           </div>
         ) : (
           <InitialScreen
+            onTypeUsername={onTypeUsername}
             onPickAvatar={onPickAvatar}
             onSelectColor={onSelectColor}
           />

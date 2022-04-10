@@ -16,7 +16,7 @@ h2 {
   font-size: 36px;
   text-align: center;
   position: relative;
-  bottom: 200px;
+  bottom: 150px;
 }
 
 img {
@@ -69,6 +69,12 @@ input:focus {
 
 .currentMember > .Message-content .text {
   background-color: orangered;
+}
+
+.footer {
+  text-align: center;
+  position: relative;
+  bottom: 50px;
 }
 
 .Messages-list {
@@ -141,5 +147,11 @@ input:focus {
 }
 
 .selected {
-  background-color: #e6ee9c;
+  background-color: #006064;
+}
+
+.username-input {
+  text-align: center;
+  position: relative;
+  bottom: 130px;
 }
