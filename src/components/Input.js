@@ -15,12 +15,12 @@ const styles = {
   getEmojiButton: {
     cssFloat: "right",
     border: "none",
-    margin: 0,
+    margin: "20px",
     cursor: "pointer",
   },
   emojiPicker: {
     position: "absolute",
-    bottom: 85,
+    bottom: 90,
     right: 30,
     cssFloat: "right",
   },

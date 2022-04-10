@@ -41,7 +41,7 @@ input:focus {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 98vh;
+  height: 97vh;
 }
 
 .App-header {
