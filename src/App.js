@@ -20,7 +20,7 @@ function App() {
   let selectedAvatar = "";
   const [user, setUser] = useState({
     username: randomName(),
-    randomColor: randomColor(),
+    userColor: "",
   });
   const [messages, setMessages] = useState([]);
   const [drone, setDrone] = useState();
@@ -54,7 +54,7 @@ function App() {
 
         const username = chatUser.clientData.username;
         const chatUserID = chatUser.id;
-        const userColor = chatUser.clientData.randomColor;
+        const userColor = user.userColor;
         const userAvatar = selectedAvatar;
         const timestamp = new Date();
         setMessages((oldArray) => [
@@ -89,6 +89,14 @@ function App() {
     }
   };
 
+  const onSelectColor = (color) => {
+    if (color) {
+      user.userColor = color;
+    } else {
+      user.userColor = randomColor();
+    }
+  };
+
   return (
     <ScrollToBottom>
       <div className="App">
@@ -101,7 +109,10 @@ function App() {
             <Input onSendMessage={onSendMessage} />
           </div>
         ) : (
-          <InitialScreen onPickAvatar={onPickAvatar} />
+          <InitialScreen
+            onPickAvatar={onPickAvatar}
+            onSelectColor={onSelectColor}
+          />
         )}
       </div>
     </ScrollToBottom>

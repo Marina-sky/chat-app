@@ -81,6 +81,7 @@ const Input = ({ onSendMessage }) => {
           value={textInputs}
           type="text"
           placeholder="Type your message here..."
+          className="Message-input"
         />
         <Button
           onClick={(e) => onSubmit(e)}

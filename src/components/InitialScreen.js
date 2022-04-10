@@ -5,8 +5,9 @@ import astronaut from "../avatars/astronaut.svg";
 import ninja from "../avatars/ninja.svg";
 import secretAgent from "../avatars/secretAgent.svg";
 
-const InitialScreen = ({ onPickAvatar }) => {
-  const [avatar, setAvatar] = useState();
+const InitialScreen = ({ onPickAvatar, onSelectColor }) => {
+  const [avatar, setAvatar] = useState("");
+  const [color, setColor] = useState("");
 
   function onClickAvatar(e) {
     setAvatar(e.target.src);
@@ -16,9 +17,14 @@ const InitialScreen = ({ onPickAvatar }) => {
     e.target.classList.add("selected");
   }
 
+  function selectColor(e) {
+    setColor(e.target.value);
+  }
+
   function onSubmit(e) {
     e.preventDefault();
     onPickAvatar(avatar);
+    onSelectColor(color);
   }
 
   return (
@@ -35,6 +41,17 @@ const InitialScreen = ({ onPickAvatar }) => {
           onClick={onClickAvatar}
         />
       </div>
+      <div className="color-input">
+        <label for="usercolor">Choose a background color: </label>
+        <input
+          type="color"
+          id="usercolor"
+          name="usercolor"
+          defaultValue="#b71c1c"
+          onChange={selectColor}
+        />
+      </div>
+
       <Box textAlign="center">
         <Button
           onClick={(e) => onSubmit(e)}
