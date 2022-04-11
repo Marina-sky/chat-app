@@ -56,9 +56,9 @@ const Input = ({ onSendMessage }) => {
   }
 
   const handleIsTyping = debounce(() => {
-    // continually delays setting "isTyping" to false for 2000ms until the user has stopped typing and the delay runs out
+    // continually delays setting "isTyping" to false for 1000ms until the user has stopped typing and the delay runs out
     setIsTyping(false);
-  }, 2000);
+  }, 1000);
 
   return (
     <>
