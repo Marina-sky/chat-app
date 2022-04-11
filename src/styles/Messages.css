@@ -3,7 +3,7 @@
 }
 
 .currentMember > .Message-content .text {
-  background-color: #765b64;
+  background-color: #ec407a;
 }
 
 .Messages-list {
@@ -62,7 +62,7 @@
   max-width: 400px;
   margin: 0;
   border-radius: 12px;
-  background-color: #f50057;
+  background-color: #006064;
   color: white;
   display: inline-block;
 }
