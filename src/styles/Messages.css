@@ -1,0 +1,80 @@
+.currentMember > .Message-content {
+  align-items: flex-end;
+}
+
+.currentMember > .Message-content .text {
+  background-color: #ab003c;
+}
+
+.Messages-list {
+  padding: 20px 0;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  list-style: none;
+  padding-left: 0;
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.Messages-message {
+  display: flex;
+  margin-top: 10px;
+}
+
+.Messages-message.currentMember {
+  /*justify-content: flex-end;*/
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.Message-content {
+  display: inline-block;
+  margin: 5px;
+}
+
+.Message-input {
+  padding: 20px;
+  font-size: 16px;
+  border-radius: 25px;
+  background-color: #e0decf;
+  border: none;
+  flex-grow: 1;
+}
+
+.Messages-message > .avatar {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 10px -10px;
+  background-size: 35px 35px;
+}
+
+.Message-content > .username {
+  display: block;
+  opacity: 0.8;
+  font-size: 14px;
+  padding-bottom: 4px;
+}
+
+.Message-content > .text {
+  padding: 10px;
+  max-width: 400px;
+  margin: 0;
+  border-radius: 12px;
+  background-color: #f50057;
+  color: white;
+  display: inline-block;
+}
+
+.Message-content > .time {
+  display: block;
+  color: gray;
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+.simplebar-scrollbar::before {
+  background-color: #f50057;
+}

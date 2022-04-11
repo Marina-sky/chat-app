@@ -4,7 +4,7 @@ import Input from "./components/Input";
 import InitialScreen from "./components/InitialScreen";
 import nouns from "./data/nouns";
 import adjectives from "./data/adjectives";
-import ScrollToBottom from "react-scroll-to-bottom";
+import "./styles/App.css";
 
 function randomName() {
   const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
@@ -106,25 +106,23 @@ function App() {
   };
 
   return (
-    <ScrollToBottom>
-      <div className="App">
-        <div className="App-header">
-          <h1>My Chat App</h1>
-        </div>
-        {loggedIn ? (
-          <div>
-            <Messages messages={messages} users={users} />
-            <Input onSendMessage={onSendMessage} />
-          </div>
-        ) : (
-          <InitialScreen
-            onTypeUsername={onTypeUsername}
-            onPickAvatar={onPickAvatar}
-            onSelectColor={onSelectColor}
-          />
-        )}
+    <div className="App">
+      <div className="App-header">
+        <h1>My Chat App</h1>
       </div>
-    </ScrollToBottom>
+      {loggedIn ? (
+        <div>
+          <Messages messages={messages} users={users} />
+          <Input onSendMessage={onSendMessage} />
+        </div>
+      ) : (
+        <InitialScreen
+          onTypeUsername={onTypeUsername}
+          onPickAvatar={onPickAvatar}
+          onSelectColor={onSelectColor}
+        />
+      )}
+    </div>
   );
 }
 

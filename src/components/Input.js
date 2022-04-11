@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
 import "emoji-mart/css/emoji-mart.css";
 import { Picker } from "emoji-mart";
+import "../styles/Input.css";
 
 const useStyles = makeStyles((theme) => ({
   button: {

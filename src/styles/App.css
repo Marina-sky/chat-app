@@ -1,0 +1,15 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 97vh;
+}
+
+.App-header {
+  background-color: #006064;
+  font-family: "Permanent Marker", cursive;
+  overflow: visible;
+  width: 100%;
+  text-align: center;
+  color: #faf9f4;
+}

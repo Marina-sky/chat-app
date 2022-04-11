@@ -1,0 +1,46 @@
+h2 {
+  font-size: 36px;
+  text-align: center;
+  position: relative;
+  bottom: 150px;
+}
+
+img {
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.avatars {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 100px;
+}
+
+.choose-avatar {
+  text-align: center;
+  position: relative;
+  bottom: 100px;
+}
+
+.color-input {
+  text-align: center;
+  position: relative;
+  bottom: 80px;
+}
+
+.footer {
+  text-align: center;
+  position: relative;
+  bottom: 50px;
+}
+
+.selected {
+  background-color: #006064;
+}
+
+.username-input {
+  text-align: center;
+  position: relative;
+  bottom: 130px;
+}

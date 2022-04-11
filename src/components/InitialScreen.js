@@ -6,6 +6,7 @@ import { Box } from "@material-ui/core";
 import astronaut from "../avatars/astronaut.svg";
 import ninja from "../avatars/ninja.svg";
 import secretAgent from "../avatars/secretAgent.svg";
+import "../styles/InitialScreen.css";
 
 const InitialScreen = ({ onTypeUsername, onPickAvatar, onSelectColor }) => {
   const [avatar, setAvatar] = useState("");
@@ -36,7 +37,7 @@ const InitialScreen = ({ onTypeUsername, onPickAvatar, onSelectColor }) => {
   }
 
   function typeUsername(e) {
-    setUserName(e.target.value);
+    setUserName(e.target.value.trim());
   }
 
   function onSubmit(e) {
