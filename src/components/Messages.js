@@ -18,7 +18,7 @@ const Messages = ({ messages, users }) => {
 
   return (
     <div>
-      <SimpleBar style={{ maxHeight: 500 }}>
+      <SimpleBar style={{ maxHeight: 500, minHeight: 0 }}>
         <ul className="Messages-list">
           {messages.map((message) => (
             <div

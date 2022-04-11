@@ -14,7 +14,6 @@
   list-style: none;
   padding-left: 0;
   flex-grow: 1;
-  overflow: auto;
 }
 
 .Messages-message {

@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
 import "emoji-mart/css/emoji-mart.css";
 import { Picker } from "emoji-mart";
+import debounce from "lodash/debounce";
 import "../styles/Input.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -31,9 +32,12 @@ const Input = ({ onSendMessage }) => {
   const classes = useStyles();
   const [textInputs, setTextInputs] = useState("");
   const [showEmojis, setShowEmojis] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
 
   function onChange(e) {
     setTextInputs(e.target.value);
+    setIsTyping(true);
+    handleIsTyping();
   }
 
   function onSubmit(e) {
@@ -51,50 +55,58 @@ const Input = ({ onSendMessage }) => {
     setTextInputs(textInputs + emoji);
   }
 
+  const handleIsTyping = debounce(() => {
+    // continually delays setting "isTyping" to false for 2000ms until the user has stopped typing and the delay runs out
+    setIsTyping(false);
+  }, 2000);
+
   return (
-    <div className="Input">
-      {showEmojis ? (
-        <div>
-          <span style={styles.emojiPicker}>
-            <Picker onSelect={addEmoji} />
-          </span>
+    <>
+      <span className="user-typing">{isTyping && "typing..."}</span>
+      <div className="Input">
+        {showEmojis ? (
+          <div>
+            <span style={styles.emojiPicker}>
+              <Picker onSelect={addEmoji} />
+            </span>
+            <p
+              style={styles.getEmojiButton}
+              onClick={onShowEmojis}
+              title="Close menu"
+            >
+              {String.fromCodePoint(0x1f60a)}
+            </p>
+          </div>
+        ) : (
           <p
             style={styles.getEmojiButton}
             onClick={onShowEmojis}
-            title="Close menu"
+            title="Add emoji"
           >
             {String.fromCodePoint(0x1f60a)}
           </p>
-        </div>
-      ) : (
-        <p
-          style={styles.getEmojiButton}
-          onClick={onShowEmojis}
-          title="Add emoji"
-        >
-          {String.fromCodePoint(0x1f60a)}
-        </p>
-      )}
+        )}
 
-      <form onSubmit={(e) => onSubmit(e)}>
-        <input
-          onChange={(e) => onChange(e)}
-          value={textInputs}
-          type="text"
-          placeholder="Type your message here..."
-          className="Message-input"
-        />
-        <Button
-          onClick={(e) => onSubmit(e)}
-          variant="contained"
-          color="secondary"
-          className={classes.button}
-          endIcon={<Icon>send</Icon>}
-        >
-          Send
-        </Button>
-      </form>
-    </div>
+        <form onSubmit={(e) => onSubmit(e)}>
+          <input
+            onChange={(e) => onChange(e)}
+            value={textInputs}
+            type="text"
+            placeholder="Type your message here..."
+            className="Message-input"
+          />
+          <Button
+            onClick={(e) => onSubmit(e)}
+            variant="contained"
+            color="secondary"
+            className={classes.button}
+            endIcon={<Icon>send</Icon>}
+          >
+            Send
+          </Button>
+        </form>
+      </div>
+    </>
   );
 };
 
