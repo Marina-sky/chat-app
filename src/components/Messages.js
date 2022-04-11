@@ -1,9 +1,11 @@
 import { useEffect, useRef } from "react";
+import useOnlineStatus from "@rehooks/online-status";
 import SimpleBar from "simplebar-react";
 import "simplebar/dist/simplebar.min.css";
 import "../styles/Messages.css";
 
 const Messages = ({ messages, users }) => {
+  const onlineStatus = useOnlineStatus();
   const messagesEndRef = useRef(null);
 
   function scrollToBottom() {
@@ -34,6 +36,7 @@ const Messages = ({ messages, users }) => {
                   backgroundImage: `URL("${message.userAvatar}")`,
                 }}
               ></span>
+              <div className="online-status">{onlineStatus ? "🟢" : "🔘"}</div>
               <div className="Message-content">
                 <div className="username">{message.username}</div>
                 <div className="text">{message.text}</div>

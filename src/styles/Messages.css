@@ -75,6 +75,13 @@
   margin-top: 5px;
 }
 
+.online-status {
+  font-size: 7px;
+  position: relative;
+  top: 25px;
+  right: 10px;
+}
+
 .simplebar-scrollbar::before {
   background-color: #f50057;
 }
