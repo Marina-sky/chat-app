@@ -25,3 +25,44 @@ form {
   bottom: 20px;
   opacity: 0.9;
 }
+
+@media screen and (max-width: 575px) {
+  .user-typing {
+    position: absolute;
+    left: 17px;
+    bottom: 85px;
+    font-size: 15px;
+  }
+
+  .emoji-picker {
+    width: 300px;
+    .emoji-mart {
+      width: 300px;
+      position: relative;
+      right: 20px;
+      bottom: 25px;
+    }
+  }
+
+  .emoji-button {
+    position: relative;
+    top: 50px;
+  }
+
+  form {
+    position: relative;
+    top: 40px;
+
+    .Message-input {
+      padding: 12px;
+      margin: 8px;
+      font-size: 14px;
+      border-radius: 18px;
+    }
+
+    .makeStyles-button-10 {
+      width: 75px;
+      height: 40px;
+    }
+  }
+}

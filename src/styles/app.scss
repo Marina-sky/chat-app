@@ -18,3 +18,15 @@
     color: #faf9f4;
   }
 }
+
+@media screen and (max-width: 575px) {
+  .App {
+    .App-header {
+      height: 66px;
+
+      h1 {
+        font-size: 27px;
+      }
+    }
+  }
+}

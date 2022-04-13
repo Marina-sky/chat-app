@@ -66,13 +66,14 @@ const Input = ({ onSendMessage }) => {
       <div className="Input">
         {showEmojis ? (
           <div>
-            <span style={styles.emojiPicker}>
+            <span style={styles.emojiPicker} className="emoji-picker">
               <Picker onSelect={addEmoji} />
             </span>
             <p
               style={styles.getEmojiButton}
               onClick={onShowEmojis}
               title="Close menu"
+              className="emoji-button"
             >
               {String.fromCodePoint(0x1f60a)}
             </p>
@@ -82,6 +83,7 @@ const Input = ({ onSendMessage }) => {
             style={styles.getEmojiButton}
             onClick={onShowEmojis}
             title="Add emoji"
+            className="emoji-button"
           >
             {String.fromCodePoint(0x1f60a)}
           </p>

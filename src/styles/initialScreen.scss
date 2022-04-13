@@ -44,3 +44,24 @@ h2 {
   position: relative;
   bottom: 130px;
 }
+
+@media screen and (max-width: 575px) {
+  h2 {
+    font-size: 22px;
+    margin: 12px;
+  }
+
+  .avatars {
+    img {
+      margin: 14px;
+      width: 75px;
+      border-radius: 4px;
+    }
+  }
+
+  .footer {
+    text-align: justify;
+    margin: 12px;
+    padding: 10px;
+  }
+}

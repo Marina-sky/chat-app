@@ -74,3 +74,11 @@
 .simplebar-scrollbar::before {
   background-color: #f50057;
 }
+
+@media screen and (max-width: 575px) {
+  .Message-content {
+    .text {
+      font-size: 15px;
+    }
+  }
+}
