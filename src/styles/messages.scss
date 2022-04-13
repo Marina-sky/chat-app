@@ -1,0 +1,76 @@
+.Messages-list {
+  padding: 20px 0;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  list-style: none;
+  padding-left: 0;
+  flex-grow: 1;
+
+  .Messages-message {
+    display: flex;
+    margin-top: 10px;
+
+    .avatar {
+      height: 35px;
+      width: 35px;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 10px -10px;
+      background-size: 35px 35px;
+    }
+
+    .online-status {
+      font-size: 7px;
+      position: relative;
+      top: 25px;
+      right: 10px;
+    }
+
+    .Message-content {
+      display: inline-block;
+      margin: 5px;
+
+      .username {
+        display: block;
+        opacity: 0.8;
+        font-size: 14px;
+        padding-bottom: 4px;
+      }
+
+      .text {
+        padding: 10px;
+        max-width: 400px;
+        margin: 0;
+        border-radius: 12px;
+        background-color: #006064;
+        color: white;
+        display: inline-block;
+      }
+
+      .time {
+        display: block;
+        color: gray;
+        font-size: 11px;
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .Messages-message.currentMember {
+    flex-direction: row-reverse;
+    text-align: right;
+
+    .Message-content {
+      align-items: flex-end;
+    }
+
+    .text {
+      background-color: #ec407a;
+    }
+  }
+}
+
+.simplebar-scrollbar::before {
+  background-color: #f50057;
+}

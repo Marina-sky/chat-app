@@ -6,7 +6,7 @@ import { Box } from "@material-ui/core";
 import astronaut from "../avatars/astronaut.svg";
 import ninja from "../avatars/ninja.svg";
 import secretAgent from "../avatars/secretAgent.svg";
-import "../styles/InitialScreen.css";
+import "../styles/initialScreen.scss";
 
 const InitialScreen = ({ onTypeUsername, onPickAvatar, onSelectColor }) => {
   const [avatar, setAvatar] = useState("");

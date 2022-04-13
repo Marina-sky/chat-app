@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import useOnlineStatus from "@rehooks/online-status";
 import SimpleBar from "simplebar-react";
 import "simplebar/dist/simplebar.min.css";
-import "../styles/Messages.css";
+import "../styles/messages.scss";
 
 const Messages = ({ messages, users }) => {
   const onlineStatus = useOnlineStatus();

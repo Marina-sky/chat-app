@@ -5,7 +5,7 @@ import Icon from "@material-ui/core/Icon";
 import "emoji-mart/css/emoji-mart.css";
 import { Picker } from "emoji-mart";
 import debounce from "lodash/debounce";
-import "../styles/Input.css";
+import "../styles/input.scss";
 
 const useStyles = makeStyles((theme) => ({
   button: {

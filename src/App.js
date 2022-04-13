@@ -4,7 +4,7 @@ import Input from "./components/Input";
 import InitialScreen from "./components/InitialScreen";
 import nouns from "./data/nouns";
 import adjectives from "./data/adjectives";
-import "./styles/App.css";
+import "./styles/app.scss";
 
 function randomName() {
   const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
