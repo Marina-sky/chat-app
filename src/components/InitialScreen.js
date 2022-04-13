@@ -10,6 +10,7 @@ import "../styles/InitialScreen.css";
 
 const InitialScreen = ({ onTypeUsername, onPickAvatar, onSelectColor }) => {
   const [avatar, setAvatar] = useState("");
+  const [avatarId, setAvatarId] = useState(0);
   const [color, setColor] = useState("");
   const [userName, setUserName] = useState("");
 
@@ -24,12 +25,19 @@ const InitialScreen = ({ onTypeUsername, onPickAvatar, onSelectColor }) => {
     },
   });
 
-  function onClickAvatar(e) {
+  function onClickAvatar(e, avatar) {
     setAvatar(e.target.src);
-    document.querySelectorAll("img").forEach((item) => {
-      item.classList.remove("selected");
-    });
-    e.target.classList.add("selected");
+    switch (avatar) {
+      case 1:
+        setAvatarId(1);
+        break;
+      case 2:
+        setAvatarId(2);
+        break;
+      default:
+        setAvatarId(3);
+        break;
+    }
   }
 
   function selectColor(e) {
@@ -63,13 +71,25 @@ const InitialScreen = ({ onTypeUsername, onPickAvatar, onSelectColor }) => {
       </div>
       <p className="choose-avatar">Choose one from existing avatars</p>
       <div className="avatars">
-        <img src={astronaut} id="astronaut" alt="" onClick={onClickAvatar} />
-        <img src={ninja} id="ninja" alt="" onClick={onClickAvatar} />
+        <img
+          src={astronaut}
+          className={`${avatarId === 1 ? "selected" : ""}`}
+          onClick={(e) => onClickAvatar(e, 1)}
+          alt=""
+        />
+        <img
+          src={ninja}
+          id="ninja"
+          className={`${avatarId === 2 ? "selected" : ""}`}
+          onClick={(e) => onClickAvatar(e, 2)}
+          alt=""
+        />
         <img
           src={secretAgent}
           id="secretAgent"
+          className={`${avatarId === 3 ? "selected" : ""}`}
+          onClick={(e) => onClickAvatar(e, 3)}
           alt=""
-          onClick={onClickAvatar}
         />
       </div>
       <div className="color-input">
