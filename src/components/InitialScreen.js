@@ -112,6 +112,7 @@ const InitialScreen = ({ onTypeUsername, onPickAvatar, onSelectColor }) => {
           onClick={(e) => onSubmit(e)}
           variant="contained"
           color="secondary"
+          disabled={avatar ? false : true}
         >
           OK
         </Button>

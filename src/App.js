@@ -17,10 +17,10 @@ function randomColor() {
 }
 
 function App() {
-  let selectedAvatar = "";
   const [user, setUser] = useState({
     username: "",
     userColor: "",
+    avatar: ""
   });
   const [messages, setMessages] = useState([]);
   const [drone, setDrone] = useState();
@@ -28,50 +28,55 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-    const drone = new window.Scaledrone("Brk2ThFSipDFaXav", {
+    if (user.username && user.avatar) {
+      const drone = new window.Scaledrone("Brk2ThFSipDFaXav", {
       data: user,
-    });
-    setDrone(drone);
-    // eslint-disable-next-line
-  }, []);
-  if (drone) {
-    drone.on("open", (error) => {
-      if (error) {
-        console.log("Error on connecting", error);
-      }
+      });
+      setDrone(drone);
+    }
+  }, [user]);
 
-      const chatRoom = drone.subscribe("observable-room");
-
-      chatRoom.on("open", (error) => {
+  useEffect(() => {
+    if (drone) {
+      drone.on("open", (error) => {
         if (error) {
-          return console.error(error);
+          console.log("Error on connecting", error);
         }
-        // Connected to room
-      });
 
-      chatRoom.on("data", (text, chatUser) => {
-        setUsers(drone.clientId);
+        const chatRoom = drone.subscribe("observable-room");
 
-        const username = user.username;
-        const chatUserID = chatUser.id;
-        const userColor = user.userColor;
-        const userAvatar = selectedAvatar;
-        const timestamp = new Date();
-        setMessages((oldArray) => [
-          ...oldArray,
-          {
-            text,
-            username,
-            userColor,
-            userAvatar,
-            chatUserID,
-            user,
-            timestamp,
-          },
-        ]);
+        chatRoom.on("open", (error) => {
+          if (error) {
+            return console.error(error);
+          }
+          // Connected to room
+        });
+
+        chatRoom.on("data", (text, chatUser) => {
+          setUsers(drone.clientId);
+
+          const user = chatUser.clientData;
+          const username = user.username;
+          const chatUserID = chatUser.id;
+          const userColor = user.userColor;
+          const userAvatar = user.avatar;
+          const timestamp = new Date();
+          setMessages((oldArray) => [
+            ...oldArray,
+            {
+              text,
+              username,
+              userColor,
+              userAvatar,
+              chatUserID,
+              user,
+              timestamp,
+            },
+          ]);
+        });
       });
-    });
-  }
+    }
+  }, [drone]);
 
   const onSendMessage = (message) => {
     if (message) {
@@ -83,26 +88,18 @@ function App() {
   };
 
   const onTypeUsername = (userName) => {
-    if (userName !== "") {
-      user.username = userName;
-    } else {
-      user.username = randomName();
-    }
+    setUser((user) => ({ ...user, username: userName || randomName() }));
   };
 
   const onPickAvatar = (avatar) => {
     if (avatar) {
       setLoggedIn(true);
-      selectedAvatar = avatar;
+      setUser((user) => ({ ...user, avatar}));
     }
   };
 
   const onSelectColor = (color) => {
-    if (color) {
-      user.userColor = color;
-    } else {
-      user.userColor = randomColor();
-    }
+    setUser((user) => ({ ...user, userColor: color || randomColor() }));
   };
 
   return (
